@@ -27,15 +27,19 @@ exports.savePlan = async (req, res) => {
 exports.getPlanByUser = async (req, res) => {
   try {
     const { userId } = req.params;
-    const plan = await WorkoutPlan.findOne({ user: userId.trim() });
 
-    if (!plan) {
+    const plan = await WorkoutPlan.find({ user: userId.trim() })
+      .sort({ createdAt: -1 }) // trie décroissant (du plus récent au plus ancien)
+      .limit(1); // on veut seulement le dernier
+
+    if (!plan || plan.length === 0) {
       return res.status(404).json({ message: "No plan found for this user." });
     }
 
-    res.json(plan);
+    res.json(plan[0]); // renvoie le plus récent
   } catch (err) {
     console.error("Error fetching plan:", err);
     res.status(500).json({ message: "Error fetching workout plan" });
   }
 };
+
