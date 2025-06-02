@@ -7,6 +7,7 @@ const workoutPlanRoutes = require("./routes/workoutPlan.routes");
 const statsRoutes = require("./routes/stats.routes");
 const diabetesRoutes = require("./routes/diabetes.routes"); 
 const bpRoutes = require("./routes/blood_pressure.routes");
+const vitalsRoutes = require("./routes/vitals.routes");
 
 
 const path = require("path");
@@ -28,7 +29,7 @@ app.use(
 app.use(express.json());
 
 // Routes
-app.use("/api", userRoutes, workoutPlanRoutes, statsRoutes,diabetesRoutes,bpRoutes);
+app.use("/api", userRoutes, workoutPlanRoutes, statsRoutes,diabetesRoutes,bpRoutes,vitalsRoutes);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use((req, res, next) => {
