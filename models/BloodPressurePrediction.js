@@ -11,4 +11,4 @@ const BloodPressurePredictionSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("BloodPressurePrediction", BloodPressurePredictionSchema);
+module.exports = mongoose.model("pression_alteriels", BloodPressurePredictionSchema);

@@ -23,4 +23,4 @@ const weeklyPlanSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("WorkoutPlan", weeklyPlanSchema);
+module.exports = mongoose.model("PlanModel", weeklyPlanSchema);

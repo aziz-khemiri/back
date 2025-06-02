@@ -14,4 +14,4 @@ const dailyStatsSchema = new mongoose.Schema(
 
 dailyStatsSchema.index({ user: 1, date: 1 }, { unique: true });
 
-module.exports = mongoose.model("DailyStats", dailyStatsSchema);
+module.exports = mongoose.model("steps-calories", dailyStatsSchema);
